@@ -12,7 +12,7 @@ import './searchleftoption.css'
 import Highlighter from 'react-highlight-words'
 
 // import SmilesDrawer from 'smiles-drawer'
-const port = process.env.PORT || 3000
+const port = process.env.REACT_APP_PORT || 6000
 
 function SearchLeftOption () {
 
