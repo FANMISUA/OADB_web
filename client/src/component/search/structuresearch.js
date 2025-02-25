@@ -51,7 +51,7 @@ function StructureSearch () {
             </Button>
 
             <Modal
-                open={visible}
+                visible={visible}
                 title="Structure Search"
                 onOk={handleOk}
                 onCancel={handleCancel}
@@ -66,7 +66,7 @@ function StructureSearch () {
                     </Button>,
                 ]}
             >
-                <div>
+                <div id="ketcher-container">
                     <iframe id="Ketcher2.5" title="ketcher2.5" src="ketcher/index1.html" width="800" height="600"></iframe>
 
                 </div>
