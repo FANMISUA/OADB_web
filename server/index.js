@@ -3,7 +3,7 @@ const app = express()
 const cors = require("cors")
 const pool = require("./db")
 
-const port = process.env.REACT_APP_PORT || 6000
+const port = process.env.REACT_APP_PORT || 3000
 
 
 

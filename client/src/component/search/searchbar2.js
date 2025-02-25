@@ -5,6 +5,7 @@ import { Input, Space, Table, message } from 'antd'
 import StructureSearch from "./structuresearch"
 import CascadeOption2 from "./cascadeoption2"
 // import styles from './searchbar2.module.css'
+const port = process.env.REACT_APP_PORT || 3000
 
 function SearchBar2 () {
 
@@ -134,7 +135,7 @@ function SearchBar2 () {
   // }
 
   const loadChemicalListbyname = async (value) => {
-    // const response = await fetch(`http://localhost:5000/demotable`)
+    // const response = await fetch(`http://localhost:${port}/demotable`)
     const response = await fetch(`http://localhost:5000/chemicalsname/${value}`)
     const jsonData = await response.json()
     setList(jsonData)
@@ -146,28 +147,28 @@ function SearchBar2 () {
   const loadChemicalListbyweight = async (value) => {
     let minw = value.split(" ")[0]
     let maxw = value.split(" ")[1]
-    const response = await fetch(`http://localhost:5000/chemicalsweight?minweight=${minw}&maxweight=${maxw}`)
+    const response = await fetch(`http://localhost:${port}/chemicalsweight?minweight=${minw}&maxweight=${maxw}`)
     const jsonData = await response.json()
     setList(jsonData)
     console.log(jsonData)
-    // console.log(`http://localhost:5000/chemicalsweight?minweight=${minweight}&maxweight=${maxweight}`)
+    // console.log(`http://localhost:${port}/chemicalsweight?minweight=${minweight}&maxweight=${maxweight}`)
   }
 
   const loadChemicalListbyAlogP = async (value) => {
     let minw = value.split(" ")[0]
     let maxw = value.split(" ")[1]
-    const response = await fetch(`http://localhost:5000/chemicalsalogp?minalogp=${minw}&maxalogp=${maxw}`)
+    const response = await fetch(`http://localhost:${port}/chemicalsalogp?minalogp=${minw}&maxalogp=${maxw}`)
     const jsonData = await response.json()
     setList(jsonData)
     console.log(jsonData)
     // console.log(minw, maxw)
-    // console.log(`http://localhost:5000/chemicalsalogp?minalogp=${minw}&maxalogp=${maxw}`)
+    // console.log(`http://localhost:${port}/chemicalsalogp?minalogp=${minw}&maxalogp=${maxw}`)
   }
 
   // load Chemical data by CasNO
   const loadChemicalListbyCasNO = async (value) => {
-    // const response = await fetch(`http://localhost:5000/demotable`)
-    const response = await fetch(`http://localhost:5000/chemicalscasno/${value}`)
+    // const response = await fetch(`http://localhost:${port}/demotable`)
+    const response = await fetch(`http://localhost:${port}chemicalscasno/${value}`)
     const jsonData = await response.json()
     setList(jsonData)
     console.log(jsonData)
@@ -192,24 +193,24 @@ function SearchBar2 () {
       <div className='container'>
         <Space align="end">
           {/* {add Searchbar component} */}
-          <InputGroup compact> 
-          <CascadeOption2 style={{width:'20%'}} getOption={getOption} />
+          <InputGroup compact>
+            <CascadeOption2 style={{ width: '20%' }} getOption={getOption} />
             <Search
-              style={{width:'700px'}}
+              style={{ width: '700px' }}
               placeholder="input search text"
               allowClear
               enterButton="Search"
               size="default"
               onSearch={onSearch}
             />
-            </InputGroup>
+          </InputGroup>
         </Space>
-        <StructureSearch style={{width:'100%'}}/>
+        <StructureSearch style={{ width: '100%' }} />
 
-        </div>
-        {/* add Table component */}
-        {ctableFlag ?
-          <Table dataSource={list} columns={chemicalcolumns} /> : null}
+      </div>
+      {/* add Table component */}
+      {ctableFlag ?
+        <Table dataSource={list} columns={chemicalcolumns} /> : null}
     </>
   )
 }

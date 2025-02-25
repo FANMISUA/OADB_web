@@ -1,5 +1,6 @@
 import React from 'react'
 import { Input, Space, Table } from 'antd'
+const port = process.env.REACT_APP_PORT || 3000
 
 
 //render table in search
@@ -36,7 +37,7 @@ class App extends React.Component {
   }
   //load list
   loadList = async () => {
-    const res = await fetch('http://localhost:5000/demotable')
+    const res = await fetch('http://localhost:${port}/demotable')
     console.log(res)
   }
 
