@@ -1,0 +1,28 @@
+/* @import '~antd/dist/antd.css'; */
+
+.mainStack {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.mainStack nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 8px;
+  width: 40%;
+  margin: 0 10px 20px 10px;
+}
+
+.demo {
+  margin: 16px;
+}
+.demo-nav {
+  height: 30px;
+  margin-bottom: 16px;
+  line-height: 30px;
+  background: #f8f8f8;
+}

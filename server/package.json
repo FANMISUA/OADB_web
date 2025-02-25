@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "postgresql server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd ../client/oakwebclient && copyfiles -U 1 public/** C:/temp/oak/",
+    "prebuild": "cd ../client/oakwebclient && npm run build",
+    "start": "nodemon index"
+  },
+  "keywords": [
+    "fd"
+  ],
+  "author": "fd",
+  "license": "ISC",
+  "dependencies": {
+    "copyfiles": "^2.4.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "g": "^2.0.1",
+    "nodemon": "^2.0.16",
+    "pg": "^8.8.0"
+  }
+}
