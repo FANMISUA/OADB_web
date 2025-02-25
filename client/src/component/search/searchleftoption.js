@@ -14,6 +14,7 @@ import Highlighter from 'react-highlight-words'
 // import SmilesDrawer from 'smiles-drawer'
 const port = process.env.REACT_APP_PORT || 6000
 
+
 function SearchLeftOption () {
 
   const [value, setValue] = useState(0)
@@ -565,7 +566,7 @@ function SearchLeftOption () {
     setImgFlag(true)
     console.log(value)
     setList([])
-    const response = await fetch(`https://localhost:${port}/structurequery/${value}`)
+    const response = await fetch(`http://localhost:${port}/structurequery/${value}`)
     const jsonData = await response.json()
     console.log(jsonData)
     // console.log(list)
@@ -580,7 +581,7 @@ function SearchLeftOption () {
     setImgFlag(true)
     console.log(value)
     setList([])
-    const response = await fetch(`https://localhost:${port}/casnoquery/${value}`)
+    const response = await fetch(`http://localhost:${port}/casnoquery/${value}`)
     const jsonData = await response.json()
     console.log(jsonData)
     // console.log(list)
@@ -596,7 +597,7 @@ function SearchLeftOption () {
     setImgFlag(true)
     console.log(value)
     setList([])
-    const response = await fetch(`https://localhost:${port}/assaynamequery/${value}`)
+    const response = await fetch(`http://localhost:${port}/assaynamequery/${value}`)
     const jsonData = await response.json()
     console.log(jsonData)
     // console.log(list)
@@ -614,8 +615,7 @@ function SearchLeftOption () {
     setList([])
     let minval = value.split(" ")[0]
     let maxval = value.split(" ")[1]
-    const response = await fetch(`https://localhost:${port}x/activitydataquery?minvalue=${minval}&maxvalue=${maxval}`)
-    // const response = await fetch(`http://localhost:${port}/activitydataquery/${value}`)
+    const response = await fetch(`localhost:${port}/activitydataquery?minvalue=${minval}&maxvalue=${maxval}`)
     const jsonData = await response.json()
     console.log(jsonData)
     // console.log(list)
@@ -631,7 +631,7 @@ function SearchLeftOption () {
     setCTableFlag(false)
     console.log(value)
     setList([])
-    const response = await fetch(`https://localhost:${port}/mastertableinfo/${value}`)
+    const response = await fetch(`http://localhost:${port}/mastertableinfo/${value}`)
     const jsonData = await response.json()
     setList(jsonData)
     console.log(jsonData)
