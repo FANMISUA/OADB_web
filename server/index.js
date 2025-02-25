@@ -3,6 +3,11 @@ const app = express()
 const cors = require("cors")
 const pool = require("./db")
 
+const port = process.env.PORT || 3000
+
+
+
+
 //middleware
 app.use(cors())
 app.use(express.json())
@@ -216,6 +221,9 @@ app.get("/mastertableweight", async (req, res) => {
 //delete
 
 //init
-app.listen(5000, '0.0.0.0', () => {
-    console.log("server has started on port 5000")
+// app.listen(5000, '0.0.0.0', () => {
+//     console.log("server has started on port 5000")
+// })
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`)
 })
